@@ -7,18 +7,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Label extends Actor
 {
-   public Label(String text){
+   public Label(){
+    Back.cnt = 0;
+    Label("Counter: " + Back.cnt);
+    }
+   public void Label(String text){
     GreenfootImage img = new GreenfootImage(text.length()*20,30);
-    img.setColor(Color.RED);
+    img.setColor(Color.WHITE);
     img.drawString(text,2,20);
     setImage(img);
     }
    public void setText(String text){
-    
     GreenfootImage img = getImage();
-    //img.clear();
-    img.drawString(text,2,40);
-    
+    img.clear();
+    Label(text);
     }
+   public void act(){
+        setText("Counter: " + Back.cnt);
+    }
+    
     
 }
