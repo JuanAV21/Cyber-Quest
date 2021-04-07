@@ -9,7 +9,6 @@ public class Label extends Actor
 {
    public Label(){
     Back.cnt = 0;
-    Label("Counter: " + Back.cnt);
     }
    public void Label(String text){
     GreenfootImage img = new GreenfootImage(text.length()*20,30);

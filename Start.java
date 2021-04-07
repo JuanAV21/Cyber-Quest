@@ -15,7 +15,7 @@ public class Start extends menuButton
     public void act() 
     {
         animation();
-        ChangeWorld(new Game());
+        ChangeWorld(new GameLevelOne());
     }    
     public void animation(){
         if(mouseHoveringOver(this)){

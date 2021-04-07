@@ -1,0 +1,324 @@
+warning: LF will be replaced by CRLF in Label.java.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Start.java.
+The file will have its original line endings in your working directory
+[1mdiff --git a/Game.java b/Game.java[m
+[1mdeleted file mode 100644[m
+[1mindex d0560d7..0000000[m
+[1m--- a/Game.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,30 +0,0 @@[m
+[31m-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)[m
+[31m-[m
+[31m-/**[m
+[31m- * Write a description of class Game here.[m
+[31m- * [m
+[31m- * @author (your name) [m
+[31m- * @version (a version number or a date)[m
+[31m- */[m
+[31m-public class Game extends World[m
+[31m-{[m
+[31m-    /**[m
+[31m-     * Constructor for objects of class Game.[m
+[31m-     * [m
+[31m-     */[m
+[31m-    public Game()[m
+[31m-    {    [m
+[31m-        super(800, 600, 1); [m
+[31m-        prepare();[m
+[31m-    }[m
+[31m-    [m
+[31m-    private void prepare()[m
+[31m-    {[m
+[31m-        Back back = new Back();[m
+[31m-        addObject(back,547,353);[m
+[31m-        Label counter = new Label();[m
+[31m-        addObject(counter,400,300);[m
+[31m-        Label label2 = new Label();[m
+[31m-        addObject(label2,456,144);[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/Label.java b/Label.java[m
+[1mindex f8300a8..8533903 100644[m
+[1m--- a/Label.java[m
+[1m+++ b/Label.java[m
+[36m@@ -9,7 +9,6 @@[m [mpublic class Label extends Actor[m
+ {[m
+    public Label(){[m
+     Back.cnt = 0;[m
+[31m-    Label("Counter: " + Back.cnt);[m
+     }[m
+    public void Label(String text){[m
+     GreenfootImage img = new GreenfootImage(text.length()*20,30);[m
+[1mdiff --git a/Start.java b/Start.java[m
+[1mindex cdc5dab..be2d3a5 100644[m
+[1m--- a/Start.java[m
+[1m+++ b/Start.java[m
+[36m@@ -15,7 +15,7 @@[m [mpublic class Start extends menuButton[m
+     public void act() [m
+     {[m
+         animation();[m
+[31m-        ChangeWorld(new Game());[m
+[32m+[m[32m        ChangeWorld(new GameLevelOne());[m
+     }    [m
+     public void animation(){[m
+         if(mouseHoveringOver(this)){[m
+[1mdiff --git a/images/Untitled.png b/images/Untitled.png[m
+[1mindex 85aa879..d6c0bf6 100644[m
+Binary files a/images/Untitled.png and b/images/Untitled.png differ
+[1mdiff --git a/project.greenfoot b/project.greenfoot[m
+[1mindex d6678d2..a2cdcfe 100644[m
+[1m--- a/project.greenfoot[m
+[1m+++ b/project.greenfoot[m
+[36m@@ -1,8 +1,11 @@[m
+ #Greenfoot project file[m
+ class.Back.image=button-blue.png[m
+[32m+[m[32mclass.Character.image=ppl3.png[m
+ class.Credits.image=CreditsHex1.png[m
+ class.CreditsWorld.image=Wall.jpg[m
+[31m-class.Game.image=pngtree-blue-technology-electronic-circuit-background-sensehigh-tech-image_61146.jpg[m
+[32m+[m[32mclass.GameLevelOne.image=background\ 2.png[m
+[32m+[m[32mclass.GameLevelTwo.image=background\ 1.png[m
+[32m+[m[32mclass.GameOver.image=Untitled.png[m
+ class.HowToPlay.image=HowToPlayHex1.png[m
+ class.Instructions.image=Wall.jpg[m
+ class.MyWorld.image=Game.jpg[m
+[36m@@ -10,52 +13,70 @@[m [mclass.Rocket.image=Menu\ button.png[m
+ class.Start.image=STARTHex2.png[m
+ class.Title.image=TitleGreen0.png[m
+ class.menuButton.image=Menu\ button.png[m
+[31m-dependency1.from=Game[m
+[32m+[m[32mdependency1.from=GameOver[m
+ dependency1.to=Back[m
+ dependency1.type=UsesDependency[m
+[31m-dependency10.from=Start[m
+[31m-dependency10.to=Game[m
+[32m+[m[32mdependency10.from=MyWorld[m
+[32m+[m[32mdependency10.to=HowToPlay[m
+ dependency10.type=UsesDependency[m
+[31m-dependency11.from=Back[m
+[31m-dependency11.to=MyWorld[m
+[32m+[m[32mdependency11.from=MyWorld[m
+[32m+[m[32mdependency11.to=Start[m
+ dependency11.type=UsesDependency[m
+[31m-dependency12.from=HowToPlay[m
+[31m-dependency12.to=Instructions[m
+[32m+[m[32mdependency12.from=MyWorld[m
+[32m+[m[32mdependency12.to=Title[m
+ dependency12.type=UsesDependency[m
+[31m-dependency13.from=Label[m
+[31m-dependency13.to=Back[m
+[32m+[m[32mdependency13.from=Character[m
+[32m+[m[32mdependency13.to=GameOver[m
+ dependency13.type=UsesDependency[m
+[31m-dependency2.from=Game[m
+[31m-dependency2.to=Label[m
+[32m+[m[32mdependency14.from=Label[m
+[32m+[m[32mdependency14.to=Back[m
+[32m+[m[32mdependency14.type=UsesDependency[m
+[32m+[m[32mdependency15.from=Health[m
+[32m+[m[32mdependency15.to=Character[m
+[32m+[m[32mdependency15.type=UsesDependency[m
+[32m+[m[32mdependency16.from=Start[m
+[32m+[m[32mdependency16.to=GameLevelOne[m
+[32m+[m[32mdependency16.type=UsesDependency[m
+[32m+[m[32mdependency17.from=Credits[m
+[32m+[m[32mdependency17.to=CreditsWorld[m
+[32m+[m[32mdependency17.type=UsesDependency[m
+[32m+[m[32mdependency18.from=Back[m
+[32m+[m[32mdependency18.to=MyWorld[m
+[32m+[m[32mdependency18.type=UsesDependency[m
+[32m+[m[32mdependency19.from=HowToPlay[m
+[32m+[m[32mdependency19.to=Instructions[m
+[32m+[m[32mdependency19.type=UsesDependency[m
+[32m+[m[32mdependency2.from=GameLevelTwo[m
+[32m+[m[32mdependency2.to=Back[m
+ dependency2.type=UsesDependency[m
+[31m-dependency3.from=Instructions[m
+[32m+[m[32mdependency3.from=GameLevelOne[m
+ dependency3.to=Back[m
+ dependency3.type=UsesDependency[m
+[31m-dependency4.from=CreditsWorld[m
+[31m-dependency4.to=Back[m
+[32m+[m[32mdependency4.from=GameLevelOne[m
+[32m+[m[32mdependency4.to=Character[m
+ dependency4.type=UsesDependency[m
+[31m-dependency5.from=MyWorld[m
+[31m-dependency5.to=Credits[m
+[32m+[m[32mdependency5.from=GameLevelOne[m
+[32m+[m[32mdependency5.to=Label[m
+ dependency5.type=UsesDependency[m
+[31m-dependency6.from=MyWorld[m
+[31m-dependency6.to=HowToPlay[m
+[32m+[m[32mdependency6.from=GameLevelOne[m
+[32m+[m[32mdependency6.to=Health[m
+ dependency6.type=UsesDependency[m
+[31m-dependency7.from=MyWorld[m
+[31m-dependency7.to=Start[m
+[32m+[m[32mdependency7.from=Instructions[m
+[32m+[m[32mdependency7.to=Back[m
+ dependency7.type=UsesDependency[m
+[31m-dependency8.from=MyWorld[m
+[31m-dependency8.to=Title[m
+[32m+[m[32mdependency8.from=CreditsWorld[m
+[32m+[m[32mdependency8.to=Back[m
+ dependency8.type=UsesDependency[m
+[31m-dependency9.from=Credits[m
+[31m-dependency9.to=CreditsWorld[m
+[32m+[m[32mdependency9.from=MyWorld[m
+[32m+[m[32mdependency9.to=Credits[m
+ dependency9.type=UsesDependency[m
+[31m-editor.fx.0.height=739[m
+[31m-editor.fx.0.width=816[m
+[31m-editor.fx.0.x=275[m
+[31m-editor.fx.0.y=-4[m
+[31m-height=28[m
+[31m-package.numDependencies=13[m
+[31m-package.numTargets=12[m
+[32m+[m[32meditor.fx.0.height=0[m
+[32m+[m[32meditor.fx.0.width=0[m
+[32m+[m[32meditor.fx.0.x=0[m
+[32m+[m[32meditor.fx.0.y=0[m
+[32m+[m[32mheight=744[m
+[32m+[m[32mpackage.numDependencies=19[m
+[32m+[m[32mpackage.numTargets=16[m
+ project.charset=UTF-8[m
+ publish.hasSource=false[m
+ publish.locked=true[m
+[36m@@ -71,91 +92,119 @@[m [mreadme.x=10[m
+ readme.y=10[m
+ simulation.speed=50[m
+ target1.height=50[m
+[31m-target1.name=Start[m
+[32m+[m[32mtarget1.name=GameOver[m
+ target1.showInterface=false[m
+ target1.type=ClassTarget[m
+ target1.width=80[m
+ target1.x=0[m
+ target1.y=0[m
+ target10.height=50[m
+[31m-target10.name=Back[m
+[32m+[m[32mtarget10.name=CreditsWorld[m
+ target10.showInterface=false[m
+ target10.type=ClassTarget[m
+[31m-target10.width=80[m
+[32m+[m[32mtarget10.width=90[m
+ target10.x=0[m
+ target10.y=0[m
+ target11.height=50[m
+[31m-target11.name=MyWorld[m
+[32m+[m[32mtarget11.name=Rocket[m
+ target11.showInterface=false[m
+ target11.type=ClassTarget[m
+ target11.width=80[m
+ target11.x=0[m
+ target11.y=0[m
+ target12.height=50[m
+[31m-target12.name=HowToPlay[m
+[32m+[m[32mtarget12.name=Credits[m
+ target12.showInterface=false[m
+ target12.type=ClassTarget[m
+ target12.width=80[m
+ target12.x=0[m
+ target12.y=0[m
+[32m+[m[32mtarget13.height=50[m
+[32m+[m[32mtarget13.name=menuButton[m
+[32m+[m[32mtarget13.showInterface=false[m
+[32m+[m[32mtarget13.type=ClassTarget[m
+[32m+[m[32mtarget13.width=90[m
+[32m+[m[32mtarget13.x=0[m
+[32m+[m[32mtarget13.y=0[m
+[32m+[m[32mtarget14.height=50[m
+[32m+[m[32mtarget14.name=Back[m
+[32m+[m[32mtarget14.showInterface=false[m
+[32m+[m[32mtarget14.type=ClassTarget[m
+[32m+[m[32mtarget14.width=80[m
+[32m+[m[32mtarget14.x=0[m
+[32m+[m[32mtarget14.y=0[m
+[32m+[m[32mtarget15.height=50[m
+[32m+[m[32mtarget15.name=MyWorld[m
+[32m+[m[32mtarget15.showInterface=false[m
+[32m+[m[32mtarget15.type=ClassTarget[m
+[32m+[m[32mtarget15.width=80[m
+[32m+[m[32mtarget15.x=0[m
+[32m+[m[32mtarget15.y=0[m
+[32m+[m[32mtarget16.height=50[m
+[32m+[m[32mtarget16.name=HowToPlay[m
+[32m+[m[32mtarget16.showInterface=false[m
+[32m+[m[32mtarget16.type=ClassTarget[m
+[32m+[m[32mtarget16.width=80[m
+[32m+[m[32mtarget16.x=0[m
+[32m+[m[32mtarget16.y=0[m
+ target2.height=50[m
+[31m-target2.name=Label[m
+[32m+[m[32mtarget2.name=Character[m
+ target2.showInterface=false[m
+ target2.type=ClassTarget[m
+ target2.width=80[m
+ target2.x=0[m
+ target2.y=0[m
+ target3.height=50[m
+[31m-target3.name=Title[m
+[32m+[m[32mtarget3.name=Health[m
+ target3.showInterface=false[m
+ target3.type=ClassTarget[m
+ target3.width=80[m
+ target3.x=0[m
+ target3.y=0[m
+ target4.height=50[m
+[31m-target4.name=Instructions[m
+[32m+[m[32mtarget4.name=Start[m
+ target4.showInterface=false[m
+ target4.type=ClassTarget[m
+[31m-target4.width=90[m
+[32m+[m[32mtarget4.width=80[m
+ target4.x=0[m
+ target4.y=0[m
+ target5.height=50[m
+[31m-target5.name=CreditsWorld[m
+[32m+[m[32mtarget5.name=GameLevelTwo[m
+ target5.showInterface=false[m
+ target5.type=ClassTarget[m
+[31m-target5.width=90[m
+[32m+[m[32mtarget5.width=100[m
+ target5.x=0[m
+ target5.y=0[m
+ target6.height=50[m
+[31m-target6.name=Rocket[m
+[32m+[m[32mtarget6.name=Label[m
+ target6.showInterface=false[m
+ target6.type=ClassTarget[m
+ target6.width=80[m
+ target6.x=0[m
+ target6.y=0[m
+ target7.height=50[m
+[31m-target7.name=Credits[m
+[32m+[m[32mtarget7.name=GameLevelOne[m
+ target7.showInterface=false[m
+ target7.type=ClassTarget[m
+[31m-target7.width=80[m
+[32m+[m[32mtarget7.width=100[m
+ target7.x=0[m
+ target7.y=0[m
+ target8.height=50[m
+[31m-target8.name=Game[m
+[32m+[m[32mtarget8.name=Title[m
+ target8.showInterface=false[m
+ target8.type=ClassTarget[m
+ target8.width=80[m
+ target8.x=0[m
+ target8.y=0[m
+ target9.height=50[m
+[31m-target9.name=menuButton[m
+[32m+[m[32mtarget9.name=Instructions[m
+ target9.showInterface=false[m
+ target9.type=ClassTarget[m
+ target9.width=90[m
+ target9.x=0[m
+ target9.y=0[m
+ version=3.0.0[m
+[31m-width=160[m
+[32m+[m[32mwidth=1382[m
+ world.lastInstantiated=MyWorld[m
+ xPosition=0[m
+ yPosition=0[m
