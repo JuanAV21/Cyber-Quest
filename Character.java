@@ -36,4 +36,5 @@ public class Character extends Actor
             displayBinaryHealth = Integer.toBinaryString(binaryHealth);
         }
     }
+    
 }
