@@ -1,21 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Minion here.
+ * Write a description of class Scientist here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Minion extends Actor
+public class Scientist extends Actor
 {
     /**
-     * Act - do whatever the Minion wants to do. This method is called whenever
+     * Act - do whatever the Scientist wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Minion(){
+    public Scientist(){
         GreenfootImage myImage = getImage();
-        int myNewHeight = (int)myImage.getHeight()*2;
-        int myNewWidth = (int)myImage.getWidth()*2;
+        int myNewHeight = (int)myImage.getHeight()/10;
+        int myNewWidth = (int)myImage.getWidth()/10;
         myImage.scale(myNewWidth,myNewHeight);
     }
     public void act() 

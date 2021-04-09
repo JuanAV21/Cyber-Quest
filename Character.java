@@ -14,6 +14,13 @@ public class Character extends Actor
      * Act - do whatever the Protaganist wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Character(){
+        GreenfootImage myImage = getImage();
+        int myNewHeight = (int)myImage.getHeight()/6;
+        int myNewWidth = (int)myImage.getWidth()/6;
+        myImage.scale(myNewWidth,myNewHeight);
+    }
+
     public void act() 
     {
         heal();
@@ -24,17 +31,19 @@ public class Character extends Actor
             displayBinaryHealth = "1111";
         }
     }  
+
     public void heal(){
         if (greenfoot.Greenfoot.isKeyDown("up") && binaryHealth < 15){
             binaryHealth++;
             displayBinaryHealth = Integer.toBinaryString(++binaryHealth);
         }
     }
+
     public void damage(){
         if (greenfoot.Greenfoot.isKeyDown("down") && binaryHealth > 0){
             binaryHealth--;
             displayBinaryHealth = Integer.toBinaryString(binaryHealth);
         }
     }
-    
+
 }
