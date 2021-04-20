@@ -20,6 +20,7 @@ public class Rocket extends Actor
     public void act() 
     {
         // Add your action code here.
+        /*
         move(speed);
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null){
@@ -30,5 +31,42 @@ public class Rocket extends Actor
         if(myWorld.getHeight() < getX() || myWorld.getWidth() < getY() || 0 > getX() || 0 > getY()){
             myWorld.removeObject(this);
         }
-    }    
+        */
+       if (Greenfoot.isKeyDown("Right"))
+        {
+            setRotation(0);
+            move(3);
+        }else if (Greenfoot.isKeyDown("Left"))
+        {
+            setRotation(180);
+            move(3);
+        }else if (Greenfoot.isKeyDown("Up"))
+        {
+            setRotation(-90);
+            move(3);
+        }else if (Greenfoot.isKeyDown("Down"))
+        {
+            setRotation(90);
+            move(3);
+        }
+        
+        if (Greenfoot.isKeyDown("Up") && Greenfoot.isKeyDown("Right"))
+        {
+            setRotation(-45);
+            move(3);
+        }else if (Greenfoot.isKeyDown("Up") && Greenfoot.isKeyDown("Left"))
+        {
+            setRotation(-135);
+            move(3);
+        }else if (Greenfoot.isKeyDown("Down") && Greenfoot.isKeyDown("Right"))
+        {
+            setRotation(45);
+            move(3);
+        }else if (Greenfoot.isKeyDown("Down") && Greenfoot.isKeyDown("Left"))
+        {
+            setRotation(135);
+            move(3);
+        }
+    }
+    
 }
