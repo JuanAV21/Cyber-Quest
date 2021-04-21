@@ -42,11 +42,11 @@ public class Character extends Actor
     {
         heal();
         damage();
+       
         if(displayBinaryHealth.equals("0")){
             Greenfoot.setWorld(new GameOver());
             binaryHealth = 15;
             displayBinaryHealth = "1111";
-            
         }
         Movement();
         mouse();
@@ -54,7 +54,7 @@ public class Character extends Actor
         animationCounter ++;
         if(Greenfoot.getMouseInfo() != null)
         {
-            shoot();
+           shoot();
         }
 
         if(animationCounter % 8 == 0){
@@ -70,7 +70,7 @@ public class Character extends Actor
     }
 
     public void damage(){
-        if (greenfoot.Greenfoot.isKeyDown("down") && binaryHealth > 0){
+        if(isTouching(minion.class) && shotTimer.millisElapsed() > 250){
             binaryHealth--;
             displayBinaryHealth = Integer.toBinaryString(binaryHealth);
         }
@@ -101,7 +101,7 @@ public class Character extends Actor
     }
     public void shoot()
     {
-        if(Greenfoot.getMouseInfo() != null && shotTimer.millisElapsed() > 250)
+        if(shotTimer.millisElapsed() > 250)
         {
             shotTimer.mark();
             if(Greenfoot.getMouseInfo().getButton() == 1)
