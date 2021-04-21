@@ -1,7 +1,10 @@
 #Greenfoot project file
+<<<<<<< HEAD
 class.Back.image=button-blue.png
 class.Bullet.image=yellow-draught.png
 class.minion.image=idle1.png
+=======
+>>>>>>> 78d280c22f056197cc7c712407c952fe9af1329a
 dependency1.from=GameOver
 dependency1.to=Back
 dependency1.type=UsesDependency
@@ -80,11 +83,19 @@ dependency8.type=UsesDependency
 dependency9.from=Instructions
 dependency9.to=Back
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=735
 editor.fx.0.width=697
 editor.fx.0.x=-7
 editor.fx.0.y=0
 height=744
+=======
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
+height=735
+>>>>>>> 78d280c22f056197cc7c712407c952fe9af1329a
 package.numDependencies=26
 package.numTargets=22
 project.charset=UTF-8
@@ -257,6 +268,11 @@ target9.x=0
 target9.y=0
 version=3.0.0
 width=1382
+<<<<<<< HEAD
 world.lastInstantiated=MyWorld
 xPosition=0
 yPosition=0
+=======
+xPosition=0
+yPosition=172
+>>>>>>> 78d280c22f056197cc7c712407c952fe9af1329a
