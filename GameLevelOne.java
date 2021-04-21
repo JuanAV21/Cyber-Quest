@@ -22,7 +22,7 @@ public class GameLevelOne extends World
         Character test = new Character();
         addObject(test,566,268);
         
-        Minion minion = new Minion();
+        minion minion = new minion();
         addObject(minion,566,368);
         
         Scientist scientist = new Scientist();
