@@ -22,7 +22,7 @@ public class GameLevelOne extends World
         Character test = new Character();
         addObject(test,566,268);
         
-        Minion minion = new Minion();
+        minion minion = new minion();
         addObject(minion,566,368);
         
         Scientist scientist = new Scientist();
@@ -33,5 +33,14 @@ public class GameLevelOne extends World
         
         Health health = new Health();
         addObject(health,466,318);
+        
+        minion minion1 = new minion();
+        addObject(minion1, Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
+        
+        minion minion2 = new minion();
+        addObject(minion2, Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
+        
+        minion minion3 = new minion();
+        addObject(minion3, Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
     }
 }
