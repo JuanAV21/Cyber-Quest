@@ -17,6 +17,7 @@ public class GameLevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
+        setBackground("background 1.png");
         Back back = new Back();
         addObject(back,739,543);
     }

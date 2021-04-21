@@ -32,10 +32,11 @@ public class Character extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Character(){
-        GreenfootImage myImage = getImage();
+        GreenfootImage myImage = new GreenfootImage("Idle (1).png");
         int myNewHeight = (int)myImage.getHeight()/6;
         int myNewWidth = (int)myImage.getWidth()/6;
         myImage.scale(myNewWidth,myNewHeight);
+        setImage(myImage);
     }
 
     public void act() 

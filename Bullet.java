@@ -16,7 +16,9 @@ public class Bullet extends Actor
     
     public Bullet(int rotation)
     {
+        GreenfootImage myImage = new GreenfootImage("yellow-draught.png");
         setRotation(rotation);
+        setImage(myImage);
     }
   
     

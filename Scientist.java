@@ -13,10 +13,11 @@ public class Scientist extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Scientist(){
-        GreenfootImage myImage = getImage();
+        GreenfootImage myImage = new GreenfootImage("1.png");
         int myNewHeight = (int)myImage.getHeight()/10;
         int myNewWidth = (int)myImage.getWidth()/10;
         myImage.scale(myNewWidth,myNewHeight);
+        setImage(myImage);
     }
     public void act() 
     {

@@ -12,6 +12,10 @@ public class Title extends menuButton
      * Act - do whatever the Title wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public void Title(){
+    GreenfootImage myImage = new GreenfootImage("TitleBlue0.png");
+    setImage(myImage);
+    }
     public void act() 
     {
         animation();

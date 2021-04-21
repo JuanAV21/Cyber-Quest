@@ -13,10 +13,11 @@ public class minion extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public minion(){
-        GreenfootImage myImage = getImage();
+        GreenfootImage myImage = new GreenfootImage("idle1.png");
         int myNewHeight =(int)myImage.getHeight()*2;
         int myNewWidth =(int)myImage.getWidth()*2;
         myImage.scale(myNewWidth, myNewHeight);
+        setImage(myImage);
     }
     public void act() 
     {

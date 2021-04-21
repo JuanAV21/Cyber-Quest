@@ -14,8 +14,9 @@ public class GameLevelOne extends World
      */
     public GameLevelOne()
     {    
-        super(800, 600, 1);
         
+        super(800, 600, 1);
+        setBackground("background 2.png");
         Back back = new Back();
         addObject(back,739,543);
         
