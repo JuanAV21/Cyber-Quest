@@ -10,6 +10,8 @@ import java.util.Iterator;
  */
 public class minion extends Actor
 {
+    int animationCounter = 0;
+    private int speed = 1;
     /**
      * Act - do whatever the Minion wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,6 +20,7 @@ public class minion extends Actor
     private List<GreenfootImage> walkIMG;
     private Iterator<GreenfootImage> walkIter;
     public minion(){
+
         GreenfootImage myImage = new GreenfootImage("idle1.png");
         int myNewHeight =(int)myImage.getHeight()*2;
         int myNewWidth =(int)myImage.getWidth()*2;
@@ -32,15 +35,19 @@ public class minion extends Actor
             walkIMG.add(new GreenfootImage(image));
         }
         walkIter = walkIMG.iterator();
+
+
     }
     public void act() 
     {
-        move(1);
+        move(speed);
         Enemymove();
         die();
+
         animation++;
         if((animation % 8) == 0){
             animation();
+
         }
     }
     
@@ -64,15 +71,14 @@ public class minion extends Actor
            getWorld().removeObject(bullet);
            getWorld().addObject(new minion(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
            getWorld().removeObject(this);
-        }
-           
-    }  
+        } 
+    }
+    
     public void animation(){
         if(walkIter.hasNext()){
             setImage(walkIter.next());
         }else{
             walkIter = walkIMG.iterator();
         }
-        
     }
 }

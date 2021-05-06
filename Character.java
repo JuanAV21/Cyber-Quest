@@ -14,6 +14,7 @@ public class Character extends Actor
     public static int binaryHealth = 15;
     public static String displayBinaryHealth = "1111";
     public int HeroRotation;
+
     public int bullet;
     
     private List<GreenfootImage> idleIMG;
@@ -24,7 +25,9 @@ public class Character extends Actor
     private Iterator<GreenfootImage> runIter;
     
     SimpleTimer shotTimer = new SimpleTimer();
+
     private int animationCounter = 0;
+    private boolean isMoving = false;
     /**
      * Act - do whatever the Protaganist wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -52,7 +55,7 @@ public class Character extends Actor
     {
         heal();
         damage();
-       
+
         if(displayBinaryHealth.equals("0")){
             Greenfoot.setWorld(new GameOver());
             binaryHealth = 15;
@@ -64,10 +67,11 @@ public class Character extends Actor
         animationCounter++;
         if(Greenfoot.getMouseInfo() != null)
         {
-           shoot();
+            shoot();
         }
 
         if(animationCounter % 8 == 0){
+
             animate();
         }
     }  
@@ -92,7 +96,8 @@ public class Character extends Actor
            displayBinaryHealth = Integer.toBinaryString(binaryHealth);
         }
     }
-        public void Movement(){
+
+    public void Movement(){
         if (Greenfoot.isKeyDown("d"))
         { setLocation(getX() + 2, getY());
         }
@@ -106,6 +111,7 @@ public class Character extends Actor
         { setLocation(getX(), getY() + 2);
         }
     }
+
     public void mouse()
     {
         if(Greenfoot.getMouseInfo() != null)
@@ -116,6 +122,7 @@ public class Character extends Actor
             turnTowards(mouseX, mouseY);
         }
     }
+
     public void shoot()
     {
         /*
