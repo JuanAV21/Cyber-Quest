@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 /**
  * Write a description of class Minion here.
  * 
@@ -12,18 +14,34 @@ public class minion extends Actor
      * Act - do whatever the Minion wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private int animation = 0;
+    private List<GreenfootImage> walkIMG;
+    private Iterator<GreenfootImage> walkIter;
     public minion(){
         GreenfootImage myImage = new GreenfootImage("idle1.png");
         int myNewHeight =(int)myImage.getHeight()*2;
         int myNewWidth =(int)myImage.getWidth()*2;
         myImage.scale(myNewWidth, myNewHeight);
         setImage(myImage);
+        walkIMG =new ArrayList<GreenfootImage>(8);
+        for(int index =1;index < 9;index++){
+            GreenfootImage image = new GreenfootImage("walk"+index+".png");
+            int newHeight =(int)image.getHeight()*2;
+            int newWidth =(int)image.getWidth()*2;
+            image.scale(newWidth, newHeight);
+            walkIMG.add(new GreenfootImage(image));
+        }
+        walkIter = walkIMG.iterator();
     }
     public void act() 
     {
         move(1);
         Enemymove();
         die();
+        animation++;
+        if((animation % 8) == 0){
+            animation();
+        }
     }
     
     public void Enemymove()
@@ -44,8 +62,17 @@ public class minion extends Actor
         if(bullet!=null)
         {
            getWorld().removeObject(bullet);
+           getWorld().addObject(new minion(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
            getWorld().removeObject(this);
         }
            
     }  
+    public void animation(){
+        if(walkIter.hasNext()){
+            setImage(walkIter.next());
+        }else{
+            walkIter = walkIMG.iterator();
+        }
+        
+    }
 }
