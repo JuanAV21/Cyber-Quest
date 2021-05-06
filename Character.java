@@ -1,4 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Write a description of class Protaganist here.
@@ -12,19 +15,17 @@ public class Character extends Actor
     public static String displayBinaryHealth = "1111";
     public int HeroRotation;
 
+    public int bullet;
+    
+    private List<GreenfootImage> idleIMG;
+    private Iterator<GreenfootImage> idleIter;
+    
+    
+    private List<GreenfootImage> runIMG;
+    private Iterator<GreenfootImage> runIter;
+    
     SimpleTimer shotTimer = new SimpleTimer();
 
-    private GreenfootImage Run1r = new GreenfootImage("Run (1).png");
-    private GreenfootImage Run2r = new GreenfootImage("Run (2).png");
-    private GreenfootImage Run3r = new GreenfootImage("Run (3).png");
-    private GreenfootImage Run4r = new GreenfootImage("Run (4).png");
-    private GreenfootImage Run5r = new GreenfootImage("Run (5).png");
-    private GreenfootImage Run6r = new GreenfootImage("Run (6).png");
-    private GreenfootImage Run7r = new GreenfootImage("Run (7).png");
-    private GreenfootImage Run8r = new GreenfootImage("Run (8).png");
-    private GreenfootImage Idle2 = new GreenfootImage("Idle (2).png");
-
-    private int frame = 1;
     private int animationCounter = 0;
     private boolean isMoving = false;
     /**
@@ -37,6 +38,17 @@ public class Character extends Actor
         int myNewWidth = (int)myImage.getWidth()/6;
         myImage.scale(myNewWidth,myNewHeight);
         setImage(myImage);
+        runIMG = new ArrayList<GreenfootImage>(8);
+        for(int index = 1;index < 9;index++){
+            runIMG.add(new GreenfootImage("Run (" + index + ").png"));
+        }
+        runIter = runIMG.iterator();
+        
+        /*
+        for(int index = 1;index < 10;index++){
+            idleIMG.add(new GreenfootImage("Idle (" + index + ").png"));
+        }
+        idleIter = idleIMG.iterator();*/ //47
     }
 
     public void act() 
@@ -52,26 +64,15 @@ public class Character extends Actor
         Movement();
         mouse();
         HeroRotation = getRotation();
-        animationCounter ++;
+        animationCounter++;
         if(Greenfoot.getMouseInfo() != null)
         {
             shoot();
         }
 
         if(animationCounter % 8 == 0){
-            if(Greenfoot.isKeyDown("d"))
-            animateRun();
-        }  
-        if(animationCounter % 8 == 0){    
-            if(Greenfoot.isKeyDown("a"))
-            animateRun();
-        }if(animationCounter % 8 == 0){
-            if(Greenfoot.isKeyDown("s"))
-            animateRun();
-            
-        }if(animationCounter % 8 == 0){
-            if(Greenfoot.isKeyDown("w"))
-            animateRun();
+
+            animate();
         }
     }  
 
@@ -83,9 +84,16 @@ public class Character extends Actor
     }
 
     public void damage(){
-        if(isTouching(minion.class) && shotTimer.millisElapsed() > 250){
+        if(isTouching(minion.class) && shotTimer.millisElapsed() > 250 ){
             binaryHealth--;
             displayBinaryHealth = Integer.toBinaryString(binaryHealth);
+        }
+        Actor bullet = getOneIntersectingObject(Bullet.class);
+        if(bullet!=null)
+        {
+           binaryHealth--;
+           getWorld().removeObject(bullet);
+           displayBinaryHealth = Integer.toBinaryString(binaryHealth);
         }
     }
 
@@ -117,6 +125,15 @@ public class Character extends Actor
 
     public void shoot()
     {
+        /*
+        if(Greenfoot.getMouseInfo().getButton() == 1 & bullet < 5){
+            getWorld().addObject(new Bullet(HeroRotation), getX(), getY());
+            bullet++;
+        }else{shotTimer.mark();}
+        if(shotTimer.millisElapsed() > 500){
+            bullet=0;
+        }*/
+        
         if(shotTimer.millisElapsed() > 250)
         {
             shotTimer.mark();
@@ -124,43 +141,20 @@ public class Character extends Actor
                 getWorld().addObject(new Bullet(HeroRotation), getX(), getY());
         }       
     }
-
-    public void animateRun()
+    public void animate()
     {
-        if(frame == 1)
-        {
-            setImage(Run1r);
+        if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("d")){
+            if(runIter.hasNext()){
+                setImage(runIter.next());
+            }else{
+                runIter = runIMG.iterator();
+            }
         }
-        else if(frame == 2)
-        {
-            setImage(Run2r);
-        }
-        else if(frame == 3)
-        {
-            setImage(Run3r);
-        }
-        else if(frame == 4)
-        {
-            setImage(Run4r);
-        }
-        else if(frame == 5)
-        {
-            setImage(Run5r);
-        }
-        else if(frame == 6)
-        {
-            setImage(Run6r);
-        }
-        else if(frame == 7)
-        {
-            setImage(Run7r);
-        }
-        else if(frame == 8)
-        {
-            setImage(Run8r);
-            frame = 1;
-
-        }
-        frame ++;
+        /*
+        if(Greenfoot.isKeyDown(null) && idleIter.hasNext()){
+            setImage(idleIter.next());
+        }else{
+            idleIter = idleIMG.iterator();
+        }*/
     }
 }

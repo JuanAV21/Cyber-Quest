@@ -12,6 +12,7 @@ public class GameLevelOne extends World
      * Constructor for objects of class Game.
      * 
      */
+    public int minion = 5;
     public GameLevelOne()
     {    
         
@@ -34,14 +35,5 @@ public class GameLevelOne extends World
         
         Health health = new Health();
         addObject(health,466,318);
-        
-        minion minion1 = new minion();
-        addObject(minion1, Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
-        
-        minion minion2 = new minion();
-        addObject(minion2, Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
-        
-        minion minion3 = new minion();
-        addObject(minion3, Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
     }
 }
