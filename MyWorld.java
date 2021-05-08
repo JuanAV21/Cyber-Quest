@@ -1,22 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Myworld here.
+ * Write a description of class MyWorld here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Myworld extends World
+public class MyWorld extends World
 {
-
     /**
-     * Constructor for objects of class Myworld.
+     * Constructor for objects of class MyWorld.
      * 
      */
-    public Myworld()
+    public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(800, 600, 1,false); 
         prepare();
         setBackground("Game.jpg");
     }
@@ -27,17 +26,13 @@ public class Myworld extends World
      */
     private void prepare()
     {
-        Character1 character1 = new Character1();
-        addObject(character1,154,99);
-        character1.setLocation(293,141);
-        Fish[] fish = new Fish[8];
-        for(int i = 0; i < fish.length; i++)
-        {
-           fish[i] = new Fish();
-           int fishX = Greenfoot.getRandomNumber(getWidth());
-           int fishY = Greenfoot.getRandomNumber(getHeight());
-           addObject(fish[i],fishX , fishY);
-        }
-        
+        Credits credits = new Credits();
+        addObject(credits,652,489);
+        HowToPlay howToPlay = new HowToPlay();
+        addObject(howToPlay,555,357);
+        Start start = new Start();
+        addObject(start,647,224);
+        Title title = new Title();
+        addObject(title,394,72);
     }
 }
