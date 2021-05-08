@@ -14,6 +14,9 @@ public class Back extends menuButton
      * Act - do whatever the Back wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public void Back(){
+    setImage("button-blue.png");
+    }
     public void act() 
     {
         if (greenfoot.Greenfoot.isKeyDown("space")){
